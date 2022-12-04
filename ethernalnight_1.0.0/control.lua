@@ -1,8 +1,13 @@
 require "util"
 
-script.on_init(function() On_Init() end)
 
-function On_Init()
-        game.surfaces[1].daylight = 0.5
-        game.surfaces[1].freeze_day = true
-end
+script.on_event(defines.events.on_player_created,function ()
+        game.surfaces[1].freeze_daytime = true
+        game.surfaces[1].daytime = 0.5
+    end)
+
+script.on_event(defines.events.on_player_respawned,function ()
+        game.surfaces[1].freeze_daytime = true
+        game.surfaces[1].daytime = 0.5
+    end)
+    
